@@ -18,7 +18,6 @@ namespace CicdApp.Controllers
 			if (string.IsNullOrEmpty(value))
 			{
 				return "Provide a query param of value";
-
 			}
 			return value.ToUpper();
 		}
