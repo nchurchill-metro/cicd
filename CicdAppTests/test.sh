@@ -6,4 +6,5 @@ then
      echo "No Errors"
 else
      echo "Errors occured"
+     exit 1
 fi
