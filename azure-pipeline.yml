@@ -25,6 +25,19 @@ jobs:
     inputs:
       command: publish
       arguments: -r linux-x64
+      workingDirectory: CicdApp/
+  - task: DotNetCoreCLI@2
+    displayName: dotnet test
+    continueOnError: True
+    inputs:
+      command: test
+      projects: '**/*Tests.csproj'
+  - task: Bash@3
+    displayName: Conditional Test Continuation
+    inputs:
+      filePath: CicdAppTests/test.sh
+      script: ''
+      workingDirectory: CicdAppTests
   - task: AzureRmWebAppDeployment@4
     displayName: 'Azure App Service Deploy: dcic'
     inputs:
