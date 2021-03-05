@@ -13,7 +13,8 @@ namespace CicdApp.Controllers.Tests
 		public void GetStuffTest()
 		{
 			TestController controller = new TestController();
-			Assert.AreEqual("TESTME", controller.GetStuff("TestMe"));
+			string testString = "TestMe";
+			Assert.AreEqual(testString.ToUpper(), controller.GetStuff(testString));
 		}
 	}
 }

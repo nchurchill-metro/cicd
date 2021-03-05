@@ -12,8 +12,18 @@ namespace CicdApp.Controllers
 	public class TestController : ControllerBase
 	{
 
-		[HttpGet]
-		public string GetStuff([FromQuery] string value) 
+		[HttpGet("upper")]
+		public string ToUpper([FromQuery] string value) 
+		{
+			if (string.IsNullOrEmpty(value))
+			{
+				return "Provide a query param of value";
+			}
+			return value.ToUpper();
+		}
+
+		[HttpGet("lower")]
+		public string ToLower([FromQuery] string value) 
 		{
 			if (string.IsNullOrEmpty(value))
 			{
