@@ -29,7 +29,7 @@ namespace CicdApp.Controllers
 			{
 				return "Provide a query param of value";
 			}
-			return value.ToUpper();
+			return value.ToLower();
 		}
 	}
 }
