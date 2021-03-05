@@ -31,5 +31,12 @@ namespace CicdApp.Controllers
 			}
 			return value.ToLower();
 		}
+
+
+		[HttpGet("health")]
+		public string HealthCheck([FromQuery] string value) 
+		{
+			return "Health is Good";
+		}
 	}
 }
