@@ -1,0 +1,59 @@
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - /
+  batch: True
+name: $(date:yyyyMMdd)$(rev:.r)
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: master
+jobs:
+- job: Phase_1
+  displayName: Agent job 1
+  timeoutInMinutes: 0
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 3.1.x
+    inputs:
+      version: 3.1.x
+  - task: DotNetCoreCLI@2
+    displayName: dotnet restore
+    inputs:
+      command: restore
+      projects: '**/*.csproj'
+  - task: DotNetCoreCLI@2
+    displayName: dotnet publish
+    inputs:
+      command: publish
+      zipAfterPublish: false
+      modifyOutputPath: false
+      workingDirectory: CicdApp/
+  - task: DotNetCoreCLI@2
+    displayName: dotnet test
+    continueOnError: True
+    inputs:
+      command: test
+      projects: '**/*Tests.csproj'
+  - task: Bash@3
+    displayName: Conditional Test Continuation
+    inputs:
+      filePath: CicdAppTests/test.sh
+      script: ''
+      workingDirectory: CicdAppTests
+  - task: DockerInstaller@0
+    displayName: Install Docker 17.09.0-ce
+  - task: Docker@2
+    displayName: Docker Build and Push Image
+    inputs:
+      containerRegistry: 84f55eed-625f-4cee-9bd5-aab6ddda9dce
+      repository: dcicrepo
+      tags: debug
+...
