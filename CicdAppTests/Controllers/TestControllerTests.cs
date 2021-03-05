@@ -10,7 +10,7 @@ namespace CicdApp.Controllers.Tests
 	public class TestControllerTests
 	{
 		[TestMethod()]
-		public void GetStuffTest()
+		public void ToUpperTest()
 		{
 			TestController controller = new TestController();
 			string testString = "TestMe";
