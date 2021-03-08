@@ -40,8 +40,9 @@ jobs:
     displayName: dotnet test
     continueOnError: True
     inputs:
-      command: test
+      command: 'test'
       projects: '**/*Tests.csproj'
+      arguments: '/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
   - task: Bash@3
     displayName: Conditional Test Continuation
     inputs:
