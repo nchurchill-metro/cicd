@@ -27,5 +27,14 @@ namespace CicdApp.Controllers.Tests
 			Assert.AreEqual(testString.ToLower(), controller.ToLower(testString));
 			Assert.IsTrue(controller.ToLower(null) != null);
 		}
+
+
+
+		[TestMethod()]
+		public void HealthTest()
+		{
+			TestController controller = new TestController();
+			Assert.IsTrue(!string.IsNullOrEmpty(controller.HealthCheck(testString)));
+		}
 	}
 }
