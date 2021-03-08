@@ -53,7 +53,9 @@ jobs:
   - task: Docker@2
     displayName: Docker Build and Push Image
     inputs:
-      containerRegistry: 84f55eed-625f-4cee-9bd5-aab6ddda9dce
-      repository: dcicrepo
-      tags: debug
+      containerRegistry: 'ContainerRegistry'
+      repository: 'dcicrepo'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
+      tags: 'debug'
 ...
