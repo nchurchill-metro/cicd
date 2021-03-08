@@ -17,5 +17,15 @@ namespace CicdApp.Controllers.Tests
 			Assert.AreEqual(testString.ToUpper(), controller.ToUpper(testString));
 			Assert.IsTrue(controller.ToUpper(null) != null);
 		}
+
+
+		[TestMethod()]
+		public void ToLowerTest()
+		{
+			TestController controller = new TestController();
+			string testString = "TestMe";
+			Assert.AreEqual(testString.ToLower(), controller.ToLower(testString));
+			Assert.IsTrue(controller.ToLower(null) != null);
+		}
 	}
 }
