@@ -34,7 +34,7 @@ namespace CicdApp.Controllers.Tests
 		public void HealthTest()
 		{
 			TestController controller = new TestController();
-			Assert.IsTrue(!string.IsNullOrEmpty(controller.HealthCheck(testString)));
+			Assert.IsTrue(!string.IsNullOrEmpty(controller.HealthCheck(null)));
 		}
 	}
 }
