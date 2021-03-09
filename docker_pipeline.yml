@@ -29,16 +29,6 @@ jobs:
     inputs:
       command: restore
       projects: '**/*.csproj'
-  - task: SonarQubePrepare@4
-    inputs:
-      SonarQube: 'azure sonar'
-      scannerMode: 'MSBuild'
-      projectKey: 'project-key'
-      projectName: 'cicdapp'
-  - task: SonarQubeAnalyze@4
-  - task: SonarQubePublish@4
-    inputs:
-      pollingTimeoutSec: '300'
   - task: DotNetCoreCLI@2
     displayName: dotnet publish
     inputs:
