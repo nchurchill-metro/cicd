@@ -55,8 +55,7 @@ jobs:
       workingDirectory: CicdAppTests
   - task: Bash@3
     inputs:
-      filePath: 'CicdApp/qube.sh'
-      workingDirectory: CicdApp
+      filePath: 'qube.sh'
   - task: DockerInstaller@0
     displayName: Install Docker 17.09.0-ce
   - task: Docker@2
