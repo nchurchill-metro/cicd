@@ -52,8 +52,11 @@ jobs:
     displayName: Conditional Test Continuation
     inputs:
       filePath: CicdAppTests/test.sh
-      script: ''
       workingDirectory: CicdAppTests
+  - task: Bash@3
+    inputs:
+      filePath: 'CicdApp/qube.sh'
+      workingDirectory: CicdApp
   - task: DockerInstaller@0
     displayName: Install Docker 17.09.0-ce
   - task: Docker@2
