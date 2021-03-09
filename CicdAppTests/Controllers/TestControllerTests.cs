@@ -18,7 +18,6 @@ namespace CicdApp.Controllers.Tests
 			Assert.IsTrue(controller.ToUpper(null) != null);
 		}
 
-
 		[TestMethod()]
 		public void ToLowerTest()
 		{
@@ -27,8 +26,6 @@ namespace CicdApp.Controllers.Tests
 			Assert.AreEqual(testString.ToLower(), controller.ToLower(testString));
 			Assert.IsTrue(controller.ToLower(null) != null);
 		}
-
-
 
 		[TestMethod()]
 		public void HealthTest()
