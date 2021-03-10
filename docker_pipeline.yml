@@ -69,5 +69,5 @@ jobs:
       Dockerfile: '**/Dockerfile'
       tags: 'debug'
     env:
-    TOKEN: $(qubeToken) # the recommended way to map to an env variable
+      TOKEN: $(qubeToken) # the recommended way to map to an env variable
 ...
