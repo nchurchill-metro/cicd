@@ -54,6 +54,7 @@ jobs:
       filePath: CicdAppTests/test.sh
       workingDirectory: CicdAppTests
   - task: Bash@3
+    displayName: SonarQube
     inputs:
       filePath: 'qube.sh'
       workingDirectory: '$(System.DefaultWorkingDirectory)'
