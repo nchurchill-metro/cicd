@@ -1,6 +1,4 @@
-testOutput=$(dotnet test)
-echo $testOutput;
-value=$(dotnet test | grep Failed: | awk '{print $4}' | sed 's/,//g')
+value=$(cat /home/vsts/work/_temp/*.trx | grep "<Counters" | awk '{print $5}' | sed 's/failed=//g' | sed 's/"//g')
 
 if [[ 0 -eq "$value" ]]
 then
