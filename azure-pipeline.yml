@@ -41,11 +41,14 @@ jobs:
   - task: AzureRmWebAppDeployment@4
     displayName: 'Azure App Service Deploy: dcic'
     inputs:
-      ConnectedServiceName: 19cc94ef-d6aa-47d7-bc19-bf8c25c0c5b9
-      WebAppKind: webAppLinux
-      WebAppName: dcic
-      DeployToSlotOrASEFlag: true
-      ResourceGroupName: rg1
-      RuntimeStack: DOTNETCORE|3.1
-      StartupCommand: dotnet exec CicdApp.dll
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'Azure subscription 1(5df41757-0ec8-4c7b-afd2-ee264ae2132c)'
+      appType: 'webAppLinux'
+      WebAppName: 'dcic'
+      deployToSlotOrASE: true
+      ResourceGroupName: 'rg1'
+      SlotName: 'production'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      RuntimeStack: 'DOTNETCORE|3.1'
+      StartupCommand: 'dotnet exec CicdApp.dll'
 ...
