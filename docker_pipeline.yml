@@ -58,6 +58,8 @@ jobs:
     inputs:
       filePath: 'qube.sh'
       workingDirectory: '$(System.DefaultWorkingDirectory)'
+    env:
+      TOKEN: $(qubeToken) # the recommended way to map to an env variable
   - task: DockerInstaller@0
     displayName: Install Docker 17.09.0-ce
   - task: Docker@2
@@ -68,6 +70,4 @@ jobs:
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
       tags: 'debug'
-    env:
-      TOKEN: $(qubeToken) # the recommended way to map to an env variable
 ...
