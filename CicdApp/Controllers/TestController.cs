@@ -36,7 +36,7 @@ namespace CicdApp.Controllers
 		[HttpGet("health")]
 		public string HealthCheck([FromQuery] string value) 
 		{
-			return "Health is Fantastic";
+			return "Health is Great";
 		}
 	}
 }
